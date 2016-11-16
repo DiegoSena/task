@@ -1,0 +1,8 @@
+apikey: PCW45-12345-12345-1234X
+address: http://ws.postcoder.com/pcw/${apikey}
+  http:
+    maxConnectionsPerHost: 100
+    maxTotalConnections: 100
+    connectionTimeout: 1000
+    connectionRequestTimeout: 1000
+    soTimeout: 1000
