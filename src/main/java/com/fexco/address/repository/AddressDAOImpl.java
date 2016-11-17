@@ -21,4 +21,8 @@ public class AddressDAOImpl implements AddressDAO {
     public List<Address> getAddresses(String country, String query, OptionalParameters optionalParameters) {
         return addressAPIService.getAddresses(country, query, optionalParameters);
     }
+
+    public void setAddressAPIService(AddressAPIService addressAPIService) {
+        this.addressAPIService = addressAPIService;
+    }
 }

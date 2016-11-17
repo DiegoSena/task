@@ -54,6 +54,19 @@ public class OptionalParameters {
         return page;
     }
 
+    @Override
+    public String toString() {
+        return "OptionalParameters{" +
+                "lines='" + lines + '\'' +
+                ", include='" + include + '\'' +
+                ", exclude='" + exclude + '\'' +
+                ", addtags='" + addtags + '\'' +
+                ", identifier='" + identifier + '\'' +
+                ", callback='" + callback + '\'' +
+                ", page='" + page + '\'' +
+                '}';
+    }
+
     public static class OptionalParametersBuilder{
         private String lines;
         private String include;

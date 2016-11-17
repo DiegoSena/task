@@ -1,5 +1,6 @@
 package com.fexco.address.service;
 
+import com.fexco.address.log.LogHelper;
 import com.fexco.address.model.Address;
 import com.fexco.address.model.OptionalParameters;
 import org.apache.http.client.HttpClient;
@@ -31,8 +32,8 @@ public class AddressAPIService {
                                        optionalParameters.getInclude(),
                                        optionalParameters.getExclude(),
                                        optionalParameters.getAddtags(),
-                                       optionalParameters.getCallback(),
                                        optionalParameters.getIdentifier(),
-                                       optionalParameters.getPage());
+                                       optionalParameters.getPage(),
+                                       LogHelper.getCurrentTID());
     }
 }
