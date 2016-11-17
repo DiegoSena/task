@@ -1,5 +1,4 @@
-#apikey: PCW45-12345-12345-1234X
-apikey: PCWWC-MJZQG-8L24G-KRN4X # minha apikeyS
+apikey: PCW45-12345-12345-1234X
 address:
   url: http://ws.postcoder.com/pcw/${apikey}
   http:
