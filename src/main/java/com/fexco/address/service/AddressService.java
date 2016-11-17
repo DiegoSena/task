@@ -18,6 +18,7 @@ public class AddressService {
     @Autowired
     private AddressDAO addressDAO;
 
+    @Cacheable(value = "address", key = "{#country + #query + #optionalParameters.toString()}")
     public List<Address> getAddresses(String country, String query, OptionalParameters optionalParameters) {
         return addressDAO.getAddresses(country, query, optionalParameters);
     }

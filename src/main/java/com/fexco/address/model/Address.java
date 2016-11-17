@@ -3,12 +3,14 @@ package com.fexco.address.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.io.Serializable;
+
 /**
  * Created by Denize on 15/11/2016.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Address {
+public class Address implements Serializable {
     private String addressline1;
     private String addressline2;
     private String addressline3;
