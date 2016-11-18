@@ -1,4 +1,7 @@
 apikey: PCW45-12345-12345-1234X
+hazelcast:
+  host: localhost
+  port: 5701
 address:
   url: http://ws.postcoder.com/pcw/${apikey}
   http:
