@@ -22,6 +22,16 @@ public class AddressDAOImpl implements AddressDAO {
         return addressAPIService.getAddresses(country, query, optionalParameters);
     }
 
+    @Override
+    public List<Address> getAddressGeos(String country, String query, OptionalParameters optionalParameters) {
+        return addressAPIService.getAddressGeos(country, query, optionalParameters);
+    }
+
+    @Override
+    public List<Address> getPosition(String country, String query, OptionalParameters optionalParameters) {
+        return addressAPIService.getPosition(country, query, optionalParameters);
+    }
+
     public void setAddressAPIService(AddressAPIService addressAPIService) {
         this.addressAPIService = addressAPIService;
     }

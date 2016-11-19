@@ -30,6 +30,10 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web') {
 		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
 	}
+	compile ('org.springframework.boot:spring-boot-starter-actuator'){
+		exclude group: 'ch.qos.logback'
+		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+	}
 	testCompile('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'ch.qos.logback'
 		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'

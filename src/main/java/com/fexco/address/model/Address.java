@@ -35,6 +35,7 @@ public class Address implements Serializable {
     private Boolean morevalues;
     private Integer nextpage;
     private Integer totalresults;
+    private String what3words;
 
     public String getAddressline1() {
         return addressline1;
@@ -226,5 +227,13 @@ public class Address implements Serializable {
 
     public void setTotalresults(Integer totalresults) {
         this.totalresults = totalresults;
+    }
+
+    public String getWhat3words() {
+        return what3words;
+    }
+
+    public void setWhat3words(String what3words) {
+        this.what3words = what3words;
     }
 }

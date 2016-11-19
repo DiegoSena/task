@@ -31,7 +31,6 @@ public class AddressControllerTest {
     @InjectMocks
     private AddressController addressController;
 
-
     @Test
     public void test_return_address_without_callback() {
         List<Address> addressList = new ArrayList<>();
@@ -52,6 +51,60 @@ public class AddressControllerTest {
         addressList.add(address);
         when(addressService.getAddresses(anyString(), anyString(), any(OptionalParameters.class))).thenReturn(addressList);
         JSONPObject response = (JSONPObject) addressController.getAddress("uk", "street", OptionalParameters.builder().callback("myfunction").build());
+        assertEquals("myfunction", response.getFunction());
+        assertEquals(1, ((List<Address>)response.getValue()).size());
+        assertEquals("summaryline", ((List<Address>)response.getValue()).get(0).getSummaryline());
+    }
+
+    // AddressGeo
+
+    @Test
+    public void test_return_addressgeo_without_callback() {
+        List<Address> addressList = new ArrayList<>();
+        Address address = new Address();
+        address.setSummaryline("summaryline");
+        addressList.add(address);
+        when(addressService.getAddressGeos(anyString(), anyString(), any(OptionalParameters.class))).thenReturn(addressList);
+        List<Address> response = (List<Address>) addressController.getAddressGeo("street", null);
+        assertEquals(1, response.size());
+        assertEquals("summaryline", response.get(0).getSummaryline());
+    }
+
+    @Test
+    public void test_return_addressgeo_with_callback(){
+        List<Address> addressList = new ArrayList<>();
+        Address address = new Address();
+        address.setSummaryline("summaryline");
+        addressList.add(address);
+        when(addressService.getAddressGeos(anyString(), anyString(), any(OptionalParameters.class))).thenReturn(addressList);
+        JSONPObject response = (JSONPObject) addressController.getAddressGeo("street", OptionalParameters.builder().callback("myfunction").build());
+        assertEquals("myfunction", response.getFunction());
+        assertEquals(1, ((List<Address>)response.getValue()).size());
+        assertEquals("summaryline", ((List<Address>)response.getValue()).get(0).getSummaryline());
+    }
+
+    // Position
+
+    @Test
+    public void test_return_position_without_callback() {
+        List<Address> addressList = new ArrayList<>();
+        Address address = new Address();
+        address.setSummaryline("summaryline");
+        addressList.add(address);
+        when(addressService.getPosition(anyString(), anyString(), any(OptionalParameters.class))).thenReturn(addressList);
+        List<Address> response = (List<Address>) addressController.getPosition("street", null);
+        assertEquals(1, response.size());
+        assertEquals("summaryline", response.get(0).getSummaryline());
+    }
+
+    @Test
+    public void test_return_position_with_callback(){
+        List<Address> addressList = new ArrayList<>();
+        Address address = new Address();
+        address.setSummaryline("summaryline");
+        addressList.add(address);
+        when(addressService.getPosition(anyString(), anyString(), any(OptionalParameters.class))).thenReturn(addressList);
+        JSONPObject response = (JSONPObject) addressController.getPosition("street", OptionalParameters.builder().callback("myfunction").build());
         assertEquals("myfunction", response.getFunction());
         assertEquals(1, ((List<Address>)response.getValue()).size());
         assertEquals("summaryline", ((List<Address>)response.getValue()).get(0).getSummaryline());

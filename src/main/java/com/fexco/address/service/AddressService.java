@@ -22,4 +22,16 @@ public class AddressService {
     public List<Address> getAddresses(String country, String query, OptionalParameters optionalParameters) {
         return addressDAO.getAddresses(country, query, optionalParameters);
     }
+
+    @Cacheable(value = "addressgeo", key = "{#country + #query + #optionalParameters.toString()}")
+    public List<Address> getAddressGeos(String country, String query, OptionalParameters optionalParameters) {
+        return addressDAO.getAddressGeos(country, query, optionalParameters);
+    }
+
+    @Cacheable(value = "position", key = "{#country + #query + #optionalParameters.toString()}")
+    public List<Address> getPosition(String country, String query, OptionalParameters optionalParameters) {
+        return addressDAO.getPosition(country, query, optionalParameters);
+    }
+
+
 }

@@ -10,4 +10,6 @@ import java.util.List;
  */
 public interface AddressDAO {
     List<Address> getAddresses(String country, String query, OptionalParameters optionalParameters);
+    List<Address> getAddressGeos(String country, String query, OptionalParameters optionalParameters);
+    List<Address> getPosition(String country, String query, OptionalParameters optionalParameters);
 }

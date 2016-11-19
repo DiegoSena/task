@@ -41,4 +41,28 @@ public class AddressServiceTest {
         assertEquals(1, addressList.size() );
         assertEquals("summaryline", addressList.get(0).getSummaryline());
     }
+
+    @Test
+    public void test_return_addressgeo(){
+        List<Address> addresses = new ArrayList<>();
+        Address address = new Address();
+        address.setSummaryline("summaryline");
+        addresses.add(address);
+        when(addressDAO.getAddressGeos(anyString(), anyString(), any(OptionalParameters.class))).thenReturn(addresses);
+        List<Address> addressList = addressService.getAddressGeos("uk", "street", null);
+        assertEquals(1, addressList.size() );
+        assertEquals("summaryline", addressList.get(0).getSummaryline());
+    }
+
+    @Test
+    public void test_return_position(){
+        List<Address> addresses = new ArrayList<>();
+        Address address = new Address();
+        address.setSummaryline("summaryline");
+        addresses.add(address);
+        when(addressDAO.getPosition(anyString(), anyString(), any(OptionalParameters.class))).thenReturn(addresses);
+        List<Address> addressList = addressService.getPosition("uk", "street", null);
+        assertEquals(1, addressList.size() );
+        assertEquals("summaryline", addressList.get(0).getSummaryline());
+    }
 }

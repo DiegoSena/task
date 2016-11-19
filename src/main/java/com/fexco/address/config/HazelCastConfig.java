@@ -17,16 +17,14 @@ import org.springframework.context.annotation.Configuration;
 @EnableCaching
 public class HazelCastConfig {
 
-    @Value("${hazelcast.host:172.17.0.2}")
+    @Value("${hazelcast.host}")
     private String hazelcastEndpoint;
 
-    @Value("${hazelcast.post:5701}")
-    private String hazelcastPort;
 
     @Bean
     public CacheManager cacheManager(){
         ClientConfig config = new ClientConfig();
-        config.getNetworkConfig().addAddress(hazelcastEndpoint+":"+hazelcastPort);
+        config.getNetworkConfig().addAddress(hazelcastEndpoint);
         HazelcastInstance client = HazelcastClient.newHazelcastClient(config);
         return new HazelcastCacheManager(client);
     }

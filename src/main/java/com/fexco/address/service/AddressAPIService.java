@@ -36,4 +36,30 @@ public class AddressAPIService {
                                        optionalParameters.getPage(),
                                        LogHelper.getCurrentTID());
     }
+
+    public List<Address> getAddressGeos(String country, String query, OptionalParameters optionalParameters){
+        return addressAPI.getAddressGeos(country,
+                query,
+                optionalParameters.getLines(),
+                optionalParameters.getInclude(),
+                optionalParameters.getExclude(),
+                optionalParameters.getAddtags(),
+                optionalParameters.getIdentifier(),
+                optionalParameters.getPage(),
+                LogHelper.getCurrentTID());
+    }
+
+    public List<Address> getPosition(String country, String query, OptionalParameters optionalParameters) {
+        return addressAPI.getPosition(country,
+                query,
+                optionalParameters.getLines(),
+                optionalParameters.getInclude(),
+                optionalParameters.getExclude(),
+                optionalParameters.getAddtags(),
+                optionalParameters.getIdentifier(),
+                optionalParameters.getPage(),
+                LogHelper.getCurrentTID());
+    }
+
+
 }
