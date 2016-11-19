@@ -6,7 +6,7 @@ run using "docker run -P --name hazelcast diegosena/hazelcastserver"
 
 the pull image https://hub.docker.com/r/diegosena/address/
 
-run using "docker run -i -t -p 8080:8080 -e apikey=<put your api key here> --link hazelcast:hazelcast diegosena/address:latest"
+run using "docker run -i -t -p 8080:8080 -e apikey=putYourAPIKeyHere --link hazelcast:hazelcast diegosena/address:latest"
 
 curl "http://localhost:8080/address/{uk|ie}/{postcode|eircode|address-fragment}"
 
