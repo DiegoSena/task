@@ -4,7 +4,9 @@ import com.fexco.address.log.LogHelper;
 import com.fexco.address.model.Address;
 import com.fexco.address.model.OptionalParameters;
 import org.apache.http.client.HttpClient;
+import retrofit.ErrorHandler;
 import retrofit.RestAdapter;
+import retrofit.RetrofitError;
 import retrofit.client.ApacheClient;
 import retrofit.converter.JacksonConverter;
 
@@ -22,6 +24,17 @@ public class AddressAPIService {
                 .setEndpoint(url)
                 .setClient(new ApacheClient(httpClient))
                 .setConverter(new JacksonConverter())
+                .setErrorHandler(new ErrorHandler() {
+                    @Override
+                    public Throwable handleError(RetrofitError cause) {
+                        switch (cause.getResponse().getStatus()){
+                            case 403:
+                                throw new IllegalArgumentException("Forbidden");
+                            default:
+                                throw new RuntimeException("Error");
+                        }
+                    }
+                })
                 .build().create(AddressAPI.class);
     }
 
