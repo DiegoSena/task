@@ -4,6 +4,8 @@ pipeline {
     stage('Build') {
       steps {
         echo 'hello'
+        sh 'mvn package -DskipTests'
+        archiveArtifacts '*.war'
       }
     }
     stage('Deploy') {
